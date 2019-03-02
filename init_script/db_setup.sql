@@ -25,8 +25,8 @@ CREATE TABLE tbl_lehrer(
 
 /*------------- AUFLÖSUNGS TABELLEN---------------*/
 
-/* Ein bildungsgang kann mehrer Ansprechparter haben 
-und ein lehrer kann für mehrere Bildungsgänge zuständig sein*/
+/* Ein bildungsgang kann mehrer Ansprechparter haben */
+/* Ein lehrer kann für mehrere Bildungsgänge zuständig sein*/
 CREATE TABLE tbl_lehrer_bildungsgänge(
     pk_fk_bildungsgang_id MEDIUMINT NOT NULL,
     pk_fk_lehrer_id MEDIUMINT NOT NULL,
@@ -39,6 +39,8 @@ CREATE TABLE tbl_lehrer_bildungsgänge(
         REFERENCES tbl_lehrer(pk_lehrer_id)
 )ENGINE=InnoDB;
 
+/*Ein Bildungsgang kann für mehrer Abschlüsse Qualifizieren*/
+/*Eine Qualifizierung kann durch mehrer Bildungsgänge erreicht werden*/
 CREATE TABLE tbl_bildungsgänge_abschlüsse(
     pk_fk_bildungsgang_id MEDIUMINT NOT NULL,
     pk_fk_abschluss_id MEDIUMINT NOT NULL,
