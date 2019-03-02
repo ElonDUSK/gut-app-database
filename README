@@ -1,4 +1,5 @@
 Ich arbeite auf mariadb 10.3.12
+und dem Branch dev/thomas
 
 btw:
 1. git clone https://github.com/thomaswhocares/gut-app-database um das repo zu clonen.
