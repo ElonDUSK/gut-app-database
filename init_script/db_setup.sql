@@ -38,7 +38,20 @@ CREATE TABLE tbl_abschlüsse(
 CREATE TABLE tbl_bildungsgänge(
     pk_bildungsgang_id MEDIUMINT NOT NULL AUTO_INCREMENT,
     bildungsgang_dauer_jahre INT NOT NULL,
-    PRIMARY KEY(pk_bildungsgang_id)
+
+    fk_kategorie_id MEDIUMINT NOT NULL,
+    fk_bereich_id MEDIUMINT NOT NULL,
+    fk_schulform_id MEDIUMINT NOT NULL,
+
+    PRIMARY KEY(pk_bildungsgang_id),
+
+    FOREIGN KEY(fk_kategorie_id)
+        REFERENCES tbl_kategorie(pk_kategorie_id),
+    FOREIGN KEY(fk_bereich_id)
+        REFERENCES tbl_bereich(pk_bereich_id),
+    FOREIGN KEY(fk_schulform_id)
+        REFERENCES tbl_schulform(pk_schulform_id)
+
 )ENGINE=InnoDB;
 
 CREATE TABLE tbl_lehrer(
