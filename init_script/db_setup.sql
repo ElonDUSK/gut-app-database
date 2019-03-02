@@ -35,7 +35,7 @@ CREATE TABLE tbl_abschlüsse(
     PRIMARY KEY(pk_abschluss_id)
 )ENGINE=InnoDB;
 
-CREATE TABLE tbl_bildungsgang(
+CREATE TABLE tbl_bildungsgänge(
     pk_bildungsgang_id MEDIUMINT NOT NULL AUTO_INCREMENT,
     bildungsgang_dauer_jahre INT NOT NULL,
 
@@ -67,14 +67,14 @@ CREATE TABLE tbl_lehrer(
 
 /* Ein bildungsgang kann mehrer Ansprechparter haben */
 /* Ein lehrer kann für mehrere Bildungsgänge zuständig sein*/
-CREATE TABLE tbl_lehrer_bildungsgang(
+CREATE TABLE tbl_lehrer_bildungsgänge(
     pk_fk_bildungsgang_id MEDIUMINT NOT NULL,
     pk_fk_lehrer_id MEDIUMINT NOT NULL,
 
     PRIMARY KEY(pk_fk_bildungsgang_id,pk_fk_lehrer_id),
 
     FOREIGN KEY (pk_fk_bildungsgang_id) 
-        REFERENCES tbl_bildungsgang(pk_bildungsgang_id),
+        REFERENCES tbl_bildungsgänge(pk_bildungsgang_id),
     FOREIGN KEy (pk_fk_lehrer_id)
         REFERENCES tbl_lehrer(pk_lehrer_id)
 )ENGINE=InnoDB;
@@ -88,7 +88,7 @@ CREATE TABLE tbl_bildungsgänge_abschlüsse(
     PRIMARY KEY(pk_fk_bildungsgang_id,pk_fk_abschluss_id),
 
     FOREIGN KEY (pk_fk_bildungsgang_id) 
-        REFERENCES tbl_bildungsgang(pk_bildungsgang_id),
+        REFERENCES tbl_bildungsgänge(pk_bildungsgang_id),
     FOREIGN KEy (pk_fk_abschluss_id)
         REFERENCES tbl_abschlüsse(pk_abschluss_id)
 
