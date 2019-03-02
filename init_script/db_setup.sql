@@ -28,15 +28,6 @@ CREATE TABLE tbl_schulform(
     PRIMARY KEY(pk_schulform_id)
 )ENGINE=InnoDB;
 
-CREATE TABLE tbl_kategorie(
-    pk_kategorie_id MEDIUMINT NOT NULL AUTO_INCREMENT,
-    kategorie_name VARCHAR(100) NOT NULL,
-
-    PRIMARY KEY(pk_kategorie_id)
-)ENGINE=InnoDB;
-
-
-
 CREATE TABLE tbl_abschlüsse(
     pk_abschluss_id MEDIUMINT NOT NULL AUTO_INCREMENT,
     abschluss_name VARCHAR(100) NOT NULL,
